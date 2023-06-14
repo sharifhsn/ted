@@ -59,6 +59,9 @@ fn main() {
             println!("Your pts: {}\nEnemy pts: {}\nCards left in deck: {:?}", game_state.player_pts, game_state.enemy_pts, game_state.cards);
         } else {
             if input.trim() == "q" {
+                for card in game_state.cards {
+                    game_state.enemy_pts += card;
+                }
                 println!("Final point total:\nPlayer: {}\nEnemy: {}", game_state.player_pts, game_state.enemy_pts);
                 if game_state.player_pts > game_state.enemy_pts {
                     println!("Player wins!");
